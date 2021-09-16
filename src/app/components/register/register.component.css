@@ -1,0 +1,63 @@
+.content {
+    margin-top: 5%;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+#banner{
+    overflow-y: visible;
+}
+.container
+{
+    align-self: center;
+    min-width:10em;
+    max-width:40em;
+    justify-content: center;
+    
+}
+
+/* .form-control.is-invalid, .was-validated .form-control:invalid {
+    padding-right: 0px;
+} */
+.btn
+{
+    align-self: center;
+    min-width: 10%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group{
+    margin-bottom: 0;
+}
+.col-sm-7{
+    margin-bottom: 1rem;
+}
+.align
+{
+    flex-direction: row;
+}
+.login-logo {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 17em;
+ }
+
+ .heading{
+     margin-left: 7em;
+ }
+
+.cover-image-cropper{
+    background-image:url('../../../assets/Trans-Social-Meetup.jpg');
+    position:relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 900px;
+}
+
+
+

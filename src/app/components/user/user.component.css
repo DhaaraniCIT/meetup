@@ -1,0 +1,13 @@
+.userDetail{
+    margin-top: 70px;
+}
+.card-footer{
+    background-color: white;
+}
+#menu1,#home{
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+#home .card-body .row,#menu1 .card-body .row {
+    margin-bottom: 10px;
+}

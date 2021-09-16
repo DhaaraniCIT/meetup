@@ -1,0 +1,13 @@
+.adminDetail{
+    margin-top: 70px;
+}
+#menu1,#home{
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+.nav,.bg-gray{
+    background-color: rgb(243, 245, 249);
+}
+#home .card-body .row{
+    margin-bottom: 10px;
+}

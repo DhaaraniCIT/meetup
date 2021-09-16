@@ -1,0 +1,253 @@
+<div class="root" (window:scroll)="onWindowScroll($event);">
+    <div class="home">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="header" >
+                    <nav class="navbar navbar-expand-lg fixed-top navbar-default bg-light sans">
+                        <a class="mr-auto" href="/" style="cursor:pointer">
+                          <img class="page-logo" src="../../../assets/meetup.png" alt="..." width="150" height="70"/>
+                        </a>
+                        <button class="navbar-toggler d-lg-none d-flex align-items-center" type="button" data-toggle="collapse"
+                                data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo01"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="material-icons">
+                                  dehaze
+                                  </span>
+                        </button>
+                      
+                        <nav class="collapse navbar-collapse px-2 mt-1" id="navbarTogglerDemo02">
+                          <ul class="navbar-nav mr-auto">
+                          </ul>
+                          <ul class="my-lg-0 navbar-nav " *ngIf="userId == true">
+                            <li class="nav-item header-nav">
+                                <a href="#about" class="nav-link header-nav-item">about us</a>
+                              </li>
+                              <li class="nav-item header-nav">
+                                <a href="#how-it-works" class="nav-link header-nav-item">how it works</a>
+                            </li>
+                            <li class="nav-item">
+                              <a href="./{{userName}}/Dashboard" class="d-flex align-items-center" style="color:inherit;">
+                                <!-- <img src="{{!profilepic ?'./assets/images/default-profile.png' : profilepic}}"
+                                                       class="rounded-circle avatar" sizes="40" alt="hhh"> -->
+                                <span class="sans font-weight-bold ml-2 mt-2" style="font-size: 30px;">{{firstName}}</span>
+                              </a>
+                            </li>
+                          </ul>
+                          <ul class="my-lg-0 navbar-nav" *ngIf="userId == false">
+                            <li class="nav-item header-nav">
+                                <a href="#about" class="nav-link header-nav-item">About us</a>
+                              </li>
+                              <li class="nav-item header-nav">
+                                <a href="#how-it-works" class="nav-link header-nav-item">How it works</a>
+                            </li>
+                            <li class="nav-item header-nav">
+                              <a class="nav-link header-nav-item"
+                                 href="/signup">Sign Up</a>
+                            </li>
+                            <li class="nav-item header-nav">
+                              <a class="nav-link header-nav-item"
+                                 href="/signin">Sign in</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      
+                      </nav>
+                </div>
+            </div>
+            <div class="container">
+                <div class="heading text-right">
+                    <h1 class="sans">
+                        <b> Dive in - Technology <br> is Happening on Meetup</b>
+                    </h1>
+                    <span>Join the 300,000+ organizers who are harnessing <br> the power of Meetup to share their passions and build community—even now. </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="aboutUs" id="about">
+        <div class="container-fluid">
+            <div class="sans text-center">
+                <h1><b>Meetup makes organizing easy</b></h1>
+            </div>
+            <div class="sans row ml-0 mr-0 pt-5">
+                <div class="col-sm-4">
+                    
+                    <img src="../../../assets/concall.jpg" class="img-fluid" alt="" srcset="">
+                </div>
+                <div class="col-sm-8">
+                    <div>
+                        <div class="">
+                            <strong>What We Do</strong>
+                        </div>
+                        <div class="para">
+                            <p>Meetup is a event platform that puts events around the world in one place that helps Users to know about the tech events happening around the world.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="">
+                            <strong>Our Mission</strong>    
+                        </div>
+                        <div class="para">
+                            <p>Meetup is dedicated to: Empowering, Inspiring and Showcasing elite techologiests.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="">
+                            <strong>Our Value</strong>
+                        </div>
+                        <div class="para">
+                            <ul>
+                                <li>Technology</li>
+                                <li>Learning</li>
+                                <li>Making</li>
+                                <li>Integrity</li>
+                                <li>Perseverance</li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="howIt" id="how-it-works">
+        <div class="container-fluid">
+            <div class="sans text-center">
+                <h1>How to Meetup</h1>
+            </div>
+            <div class="content">
+                <div class="card-body">
+                    <div class="card-deck">
+                      <div class="col-sm-4  mt-2">
+                        <div class="card text-center">
+                          <div class="card-body">
+                            <h5 class="card-title font-weight-bolder" style="height:4vh">Create Your Account</h5>
+                            <div>
+                              <div class="mt-3">
+                                <span class="material-icons">
+                                    how_to_reg
+                                </span>
+                              </div><br />
+                              <p class="text-center">
+                                Create your own account to explore the Meetup
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4  mt-2">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="text-center">
+                              <h5 class="card-title font-weight-bolder" style="height:4vh">View Events</h5>
+                              <div class="mt-3 ">
+                                <span class="material-icons">
+                                    view_list
+                                    </span>                                    
+                              </div><br />
+                              <p class="text-center ">
+                                View the events that is held all around the world
+                              </p>
+                            </div>
+              
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4  mt-2">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="text-center">
+                              <h5 class="card-title font-weight-bolder" style="height:4vh">Book your slot</h5>
+                              <div class="mt-3">
+                                <span class="material-icons">
+                                    book_online
+                                    </span>                                    
+                              </div><br />
+              
+                            </div>
+                            <p class="text-center">
+                              Book your slot for the event you like
+                            </p>
+                          </div>
+                        </div>
+                      </div>             
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer bg-dark sans">
+        <footer class="page-footer primary txt-light pt-4">
+          <div class="container footer-copyright" id="footer">
+            <div class="row col-sm-12" style="text-align:left">
+              <!--<div class="col-sm-12" style="text-align:left">-->
+              <div class="col-sm-5">
+      
+                <!-- Content -->
+                <h6 class="text-uppercase font-weight-bold pb-1 text-white">CONTACT US</h6>
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="footer-link footer-font"> #4700, Mossy Oak Trail, Rogers,</a>
+                  </li>
+                  <li>
+                    <a class="footer-link footer-font">Arkansas 72758, USA.</a>
+                  </li>
+                  <li>
+                    <a class="footer-link footer-font" href="#">info@meetup.com</a>
+                  </li>
+                  <li>
+                    <a class="footer-link footer-font">+1-541-754-3010</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-5 mb-3">
+                <h6 class="text-uppercase font-weight-bold text-white">Useful Links</h6>
+      
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="footer-link footer-font" href="/login">Login</a>
+                  </li>
+                  <li>
+                    <a class="footer-link footer-font" href="/">Terms of Use</a>
+                  </li>
+                  <li>
+                    <a class="footer-link footer-font" href="/">Privacy Policy</a>
+                  </li>
+                </ul>
+      
+              </div>
+      
+              <div class="col-sm-2 mb-3">
+                <ul class="list-unstyled">
+                  <li class="pb-4">
+                    <a class="btn btn-getintouch text-white">Get in touch</a>
+                  </li>
+                  <li>
+                    <a class="social-media-link footer-social-link pr-3"
+                       href='#' target="_blank"
+                       rel="noopener noreferrer">
+                      <i class="fa fa-facebook fa-lg social-media-link footer-social-link" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-media-link footer-social-link pr-3"
+                       href='#' target="_blank" rel="noopener noreferrer">
+                      <i class="fa fa-instagram fa-lg social-media-link footer-social-link" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-media-link footer-social-link pr-3">
+                      <i class="fa fa-twitter fa-lg social-media-link footer-social-link" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-media-link">
+                      <i class="fa fa-linkedin fa-lg social-media-link footer-social-link" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+      
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright text-center pb-3 text-white">
+            © 2021 Meetup.
+            <a class="footer-link footer-font "> All rights reserved.</a>
+          </div>
+      
+        </footer>
+      </div>
+</div>

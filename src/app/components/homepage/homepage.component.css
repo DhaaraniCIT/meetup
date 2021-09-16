@@ -1,0 +1,98 @@
+.home{
+    background-image:url('../../../assets/conference.jpg');
+    position:relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 720px;
+}
+
+a{
+    color:black;
+    cursor: pointer;
+}
+ul li a:hover,.navbar-default ul li a:active{
+    color: black;
+    text-decoration: underline;
+}
+.nav-item{
+    padding: 10px 10px;
+}
+/* .content{
+    position: absolute;
+} */
+.heading {
+    padding-top: 18%;
+    color: white;
+}
+.heading h1,.sans h1{
+    font-weight: 900;
+}
+.aboutUs{
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background-color: rgb(243, 245, 249);
+}
+.aboutUs strong{
+    font-size: 18px;
+}
+.howIt{
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+.howIt .material-icons{
+    font-size: 40px;
+}
+.footer{
+    padding: 50px 20px;
+}
+.footer-font {
+    font-size: 0.8em;
+    font-weight: 700;
+  }
+  
+  /* #footer {
+    padding-left: 79px;
+    padding-right: 79px; */
+    /*position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 1%;*/
+    /* Footer height */
+    /* height: 3.5rem;           */
+  /* } */
+  .footer a{
+      color:#fff;
+  }
+  .social-media-link {
+    color: #fff;
+  }
+  
+  .footer-link:hover {
+    color: #89F2F6 !important;
+  }
+  
+  .footer-social-link:hover {
+    color: #89F2F6 !important;
+  }
+  
+  .btn-getintouch {
+    background: transparent;
+    color: #fff;
+    border-color: white;
+    border: 3px solid white;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  @media (min-width: 300px) and (max-width: 1024px){
+    .home{
+        position:relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right center;
+        width: 100%;
+        height: 720px;
+    }
+    .heading {
+        padding-top: 60%;
+    }
+  }

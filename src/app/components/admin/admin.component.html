@@ -1,0 +1,253 @@
+<div class="admin sans">
+    <div class="topNav">
+        <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-default mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="../../../assets/meetup.png" alt="Logo" width="150" height="70" style="margin-right: 10px;">
+                </a>
+                <ul class="nav navbar-nav" id="desktop">
+                    <li class="nav-item">
+                        <a class="nav-link" href="" (click)="logOut()">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <br>
+    <div class="adminDetail">
+        <div class="row ml-0 mr-0 d-flex justify-content-center" *ngIf="!loaded">
+            <div style="text-align: center;">
+                <div class="spinner-border text-primary"></div>
+                <p class="text-center">Please wait while loading</p>
+            </div>
+        </div>
+        <div class="container-fluid" *ngIf="loaded">
+            <div class="row ml-0 mr-0 d-flex justify-content-center">
+                <div>
+                    <img src="../../../assets/avarters/1.PNG" alt="" srcset="">
+                    <h3 class="text-center">Admin</h3>
+                </div>
+            </div>
+            <div class="mt-5">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#home"><b>Events</b></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#menu1"><b>Create Events</b></a>
+                    </li>
+                  </ul>
+                  
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div class="tab-pane container active" id="home">
+                        <div class="text-center mb-5">
+                            <h1><b>Events</b></h1>
+                        </div>
+                        <div *ngIf="msg" class="text-center ">
+                            <h3><b>{{msg}}</b></h3>
+                        </div>
+                        <div class="card-columns">
+                            <div *ngFor="let event of events; let i = index">
+                                <div class="card bg-gray">
+                                    <div class="card-header"><h3><b>{{event.Ename}}</b></h3></div>
+                                        <div class="card-body">
+                                            <p>{{event.description}}</p>
+                                            <div class="row ml-0 mr-0">
+                                                <div class="col "><b>Domain</b></div>
+                                                <div class="col">{{event.Edomine}}</div>
+                                            </div>
+                                            <div class="row ml-0 mr-0">
+                                                <div class="col "><b>Place</b></div>
+                                                <div class="col">{{event.Ecity}}</div>
+                                            </div>
+                                            <div class="row ml-0 mr-0">
+                                                <div class="col "><b>date</b></div>
+                                                <div class="col">{{event.Edata}}</div>
+                                            </div>
+                                            <div class="row ml-0 mr-0">
+                                                <div class="col "><b>Total Tickets</b></div>
+                                                <div class="col">{{event.tickets}}</div>
+                                            </div>
+                                            <div class="row ml-0 mr-0">
+                                                <div class="col "><b>Price</b></div>
+                                                <div class="col">{{event.Eprice|currency}}</div>
+                                            </div>
+                                            <div class="row ml-0 mr-0">
+                                                <div class="col "><b>Booked</b></div>
+                                                <div class="col">{{event.TicBooked}}</div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="card-footer">Footer</div> -->
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane container fade" id="menu1">
+                        <div class="text-center mb-5">
+                            <h1><b>Create Event</b></h1>
+                        </div>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                <form [formGroup]= "registerForm" >
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group ">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Event Name</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Event Name</label>
+                                        </div>
+                                        <div class="col-sm-7 ">
+                                            <div class="form-group">
+                                            <input style="width: 103%;" type="text" class="form-control" formControlName="Ename" name="EName" placeholder="Event Name" [ngClass]="{ 'is-invalid':registerForm.get('Ename').touched && registerForm.get('Ename').invalid}">
+                                            <div *ngIf="f.Ename.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Ename.errors.required">Event Name is required</div>
+                                            </div>
+                                            <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group ">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Event Description</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Event Description</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                            <input style="width: 103%;" type="email" class="form-control" formControlName = "des" name="des" placeholder="Event Description" [ngClass]="{ 'is-invalid':registerForm.get('des').touched && registerForm.get('des').invalid}">
+                                            <div *ngIf="f.des.errors" class="invalid-feedback">
+                                                <div *ngIf="f.des.errors.required">Event Description is required</div>
+                                                <!-- <div *ngIf="f.des.errors.pattern">Email must be a valid email address</div> -->
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group ">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Event Domine</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Event Domine</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                            <input style="width: 103%;" type="text" class="form-control" formControlName = "domin" name="domin" placeholder="Event Domine"  [ngClass]="{ 'is-invalid':registerForm.get('domin').touched && registerForm.get('domin').invalid}">
+                                            
+                                            <div *ngIf="f.domin.errors" class="invalid-feedback">
+                                                <div *ngIf="f.domin.errors.required">Event Domine is required</div>
+                                                <!-- <div *ngIf="f.password.errors.pattern">Password must be at least 8 characters,lowercase,uppercase,numbers and special characters </div> -->
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group  text-nowrap">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Place</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Place</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                            <input style="width: 103%;"  type="text" class="form-control" formControlName = "city" name="city" placeholder="city" [ngClass]="{ 'is-invalid':registerForm.get('city').touched && registerForm.get('city').invalid}">
+                                            <div *ngIf="f.city.errors" class="invalid-feedback">
+                                                <div *ngIf="f.city.errors.required">City is required.</div>
+                                                <div *ngIf="f.city.errors.pattern">City must contain only Alphabets.</div>
+                                            </div>
+                                            </div>
+                                            <span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group text-nowrap">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Date</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Date</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <input style="width: 103%;" id="txtDate" type="date" min={{Date}} class="form-control" formControlName = "date" [ngClass]="{ 'is-invalid':registerForm.get('date').touched && registerForm.get('date').invalid}" >
+                                                <div *ngIf="f.date.errors" class="invalid-feedback">
+                                                <div *ngIf="f.date.errors.required">Date is required</div>
+                                                </div>
+                                            </div>
+                                            <span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group  text-nowrap">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Price</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Price</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                            <input style="width: 103%;"  type="text" class="form-control" formControlName = "price" name="price" placeholder="Ticket price" [ngClass]="{ 'is-invalid':registerForm.get('price').touched && registerForm.get('price').invalid}">
+                                            <div *ngIf="f.price.errors" class="invalid-feedback">
+                                                <div *ngIf="f.price.errors.required">Price is required.</div>
+                                                <div *ngIf="f.price.errors.pattern">Price must numbers.</div>
+                                            </div>
+                                            </div>
+                                            <span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 form-group  text-nowrap">
+                                            <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Total Tickets</label>
+                                            <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Total Tickets</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                            <input style="width: 103%;"  type="text" class="form-control" formControlName = "ticket" name="ticket" placeholder="Total Ticket " [ngClass]="{ 'is-invalid':registerForm.get('ticket').touched && registerForm.get('ticket').invalid}">
+                                            <div *ngIf="f.ticket.errors" class="invalid-feedback">
+                                                <div *ngIf="f.ticket.errors.required">Tickets is required.</div>
+                                                <div *ngIf="f.ticket.errors.pattern">Tickets count must be in only numbers.</div>
+                                            </div>
+                                            </div>
+                                            <span></span><span></span>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                </div>
+                                <div class="col-sm-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8">
+                                <div align = "center" style = "color: red;font-size: 1em;" *ngIf = "failure">{{errmsg}}</div>
+                                <br>
+                                <button type="button" [disabled]="!registerForm.valid" (click) = "addevent()" class="btn btn-dark mb-2 font-weight-bolder btn-block">Add Event</button><br>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="modal fade" id="add">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          </div>
+                                        <div class="modal-body text-center">
+                                            <img src="../../../assets/success.jpg" class="img-fluid mb-4" width="100" height="100" alt="" srcset="">
+                                            <h3><b>Event Added Successfully</b></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="error">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          </div>
+                                        <div class="modal-body text-center">
+                                            
+                                            <h3><b>Somthing went wrong</b></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

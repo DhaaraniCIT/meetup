@@ -1,0 +1,62 @@
+<div class="">
+    <div class="carousel slide carousel-fade" data-ride="carousel">
+       <div class="carousel-inner">
+          <div class="carousel-item cover-image-cropper active">
+             <img style="height: 100vh;" src="../../../assets/Trans-Social-Meetup.jpg"
+               class="d-block w-100" alt="..."  />
+             <div class="card-img-overlay d-md-block text-left text-light mt-lg-n3">
+                <div class="app flex-row align-items-center" style="margin-top: 5%;">
+                  <div class="container p-3" style="background-color: #ffffff;opacity: 0.9;padding: 15px 0px 10px 0px;max-width: 600px;">
+                        <div class="justify-content-center">
+                            <a class="mr-auto" href="/"><img class="login-logo" src="../../../assets/Meetup_Logo.png" alt="..." style="width: 150px;height: 150px;"></a>
+                            <div class="info-heading" style="font-size: unset; font-weight: bold;color: #000000;"> <br>Sign In to access your MeetUps
+                            </div><br>          
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-sm-6 offset-md-3">
+                            <form  [formGroup]= "loginForm" >
+                              
+                              <div class="form-group">
+                                <input type="email"  class="form-control" formControlName="email" [ngClass]="{ 'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}" placeholder="Email"  />
+                                <div *ngIf="f.email.errors" class="invalid-feedback">
+                                  <div *ngIf="f.email.errors.required">Email is required</div>
+                                  <div *ngIf="f.email.errors.pattern">Enter a valid Email address</div>
+                                </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                <div class="input-group mb-3">
+                                  <input type="password" appBlockCopyPaste [type]="hide?'password':'text'" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}" placeholder="Password" />
+                                  <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="submit" (click)="hide=!hide"><span class="material-icons float-right" >
+                                      {{hide?'visibility':'visibility_off'}}
+                                      </span></button>
+                                  </div>
+                                  <div *ngIf="f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div>
+                                </div>
+                                
+                              </div>
+                              
+                              
+                            </form>
+                            <div align = "center" style = "color: red;font-size: 1em;" *ngIf = "failure">EmailId or password is invalid!</div>
+                            <br>
+                            <div class="form-group">
+                                <button type="button" [disabled] = "!loginForm.valid" (click)="login()" class="mb-2 btn btn-dark btn-block">Sign In</button>
+                            </div>
+                            
+                            <div class = "justify-content-center row"><span style="font-size: unset; font-weight: bold;color: #000000;">Not a member? <a href="/signup">Sign Up</a></span></div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  

@@ -1,0 +1,125 @@
+<div id="banner" class="">
+    <div id="carouselExampleCaptions" class="" data-ride="carousel">
+        <div class="">
+           <div class="cover-image-cropper">
+                <div class="card-img-overlay d-md-block text-left text-light">
+                    <div class="app align-items-center" style="margin-top: 1%;">
+                        <div class="container " style="background-color: #ffffff;opacity: 0.9;">
+                            <div class="justify-content-center row">
+                                <div class="content">
+                                    <a class="mr-auto" href="/"><img class="login-logo" src="../../../assets/Meetup_Logo.png" alt="..." style="width: 150px;height: 150px;"></a>
+                                    <div class="mt-3 px-2">
+                                        <span style="font-weight: bold;color: #000000;">Create an account to Meetups</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="content" style="margin-top: 1%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <form [formGroup]= "registerForm" >
+                                        <div class="row">
+                                            <div class="col-sm-5 form-group ">
+                                                <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Name</label>
+                                                <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Name</label>
+                                            </div>
+                                            <div class="col-sm-7 ">
+                                                <div class="form-group">
+                                                <input style="width: 103%;" type="text" class="form-control" formControlName="firstname" name="firstName" placeholder="Name" [ngClass]="{ 'is-invalid':registerForm.get('firstname').touched && registerForm.get('firstname').invalid}">
+                                                <div *ngIf="f.firstname.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.firstname.errors.required">Name is required</div>
+                                                </div>
+                                                <span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5 form-group ">
+                                                <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Email Address</label>
+                                                <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Email Address</label>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group">
+                                                <input style="width: 103%;" type="email" class="form-control" formControlName = "email" name="emailId" placeholder="Email Address" [ngClass]="{ 'is-invalid':registerForm.get('email').touched && registerForm.get('email').invalid}">
+                                                <div *ngIf="f.email.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                                    <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5 form-group ">
+                                                <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Password</label>
+                                                <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Password</label>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group">
+                                                <input style="width: 103%;" type="password" class="form-control" formControlName = "password" name="password" placeholder="Password"  [ngClass]="{ 'is-invalid':registerForm.get('password').touched && registerForm.get('password').invalid}">
+                                                
+                                                <div *ngIf="f.password.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                                    <div *ngIf="f.password.errors.pattern">Password must be at least 8 characters,lowercase,uppercase,numbers and special characters </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5 form-group  text-nowrap">
+                                                <label class="d-none d-md-block text-right" style="font-weight: bold;color: #000000;">Confirm Password</label>
+                                                <label class="d-sm-block d-md-none" style="font-weight: bold;color: #000000;">Confirm Password</label>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group">
+                                                <input style="width: 103%;"  type="password" class="form-control" formControlName = "confirm_password" name="confirmPassword" placeholder="Confirm Password" [ngClass]="{ 'is-invalid':registerForm.get('confirm_password').touched && registerForm.get('confirm_password').invalid}">
+                                                <div *ngIf="f.confirm_password.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.confirm_password.errors.required">Confirm Password is required</div>
+                                                    <div *ngIf="f.confirm_password.errors.pattern">Confirm Password must include at least 8 characters,lowercase,uppercase,numbers and special characters </div>
+                                                    <div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+        
+                                                </div>
+                                                </div>
+                                                <span></span><span></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-sm-5 form-group">
+                                            <img class="d-none d-md-block text-right" width="180" height="70" src="{{img}}">
+                                            <img class="d-sm-block d-md-none" width="180" height="70" src="{{img}}">
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <input style="width: 103%;"  type="text" class="form-control" formControlName = "captcha" name="CAPTCHA" placeholder="CAPTCHA" [ngClass]="{ 'is-invalid':registerForm.get('captcha').touched && registerForm.get('captcha').invalid}"  maxlength="6">
+                                                <div *ngIf="f.captcha.errors" class="invalid-feedback">
+                                                <div *ngIf="f.captcha.errors.required">Captcha is required</div>
+                                                </div>
+                                            </div>
+                                            <span></span><span></span>
+                                        </div>
+                                    </div>
+                                    </form>
+                                    
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                                <div class="row" style="margin-left: 4%;">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8">
+                                    <div align = "center" style = "color: red;font-size: 1em;" *ngIf = "failure">{{errmsg}}</div>
+                                    <br>
+                                    <button type="button" [disabled]="!registerForm.valid" (click) = "signup()" class="btn btn-dark mb-2 font-weight-bolder btn-block">Sign Up</button><br>
+                                    <div class="form-group">
+                                        <div class="text-center mb-4"><span style="font-weight: bold;color: #000000;">Already a Member?<a href="/signin">&nbsp;<u class="">Sign In</u></a></span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-sm-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
